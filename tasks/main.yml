@@ -2,10 +2,10 @@
 # tasks file for python-from-src
 
 - name: make sure necessary yum packages are installed
-  yum: name={{item}} state=present update_cache=yes
-  with_items:
-    - openssl
-    - openssl-devel
+  yum: 
+    name: ['openssl', 'openssl-devel']
+    state: present
+    update_cache: yes
   when: pyfsrc_ssl_support
 
 - set_fact:
